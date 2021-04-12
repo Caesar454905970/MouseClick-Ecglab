@@ -1,0 +1,30 @@
+import pyautogui
+# 1920x1080初始坐标：
+x_beginning=350
+y_beginning=186
+
+# 输入病例的总数
+sum_case=eval(input('请输入删除的病例总数：'))
+# 一次删除42个病例数，执行的批量数：z
+# 向下取整+1
+z_batch=(sum_case//42)+1
+print("删除的批量{}".format(z_batch))
+for j in range(0,z_batch):
+    x_beginning = 350
+    y_beginning = 186
+    for i in range(0, 42):
+        pyautogui.click(x=x_beginning, y=y_beginning, clicks=1, interval=0.0, button='left', duration=0.0,tween=pyautogui.linear)
+        y_beginning += 17
+        
+    # 删除病例
+    print("执行删除病例")
+    pyautogui.click(x=1774, y=991, clicks=1, interval=0.0, button='left', duration=0.0, tween=pyautogui.linear)
+    # 确定删除病例
+    pyautogui.click(x=931, y=575, clicks=1, interval=0.0, button='left', duration=0.0, tween=pyautogui.linear)
+    # 删除病例坐标
+    # 1774, 991
+    # 确定删除病例坐标
+
+
+找到BUG:
+不能点击空白处
